@@ -1,9 +1,3 @@
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define(factory) :
-	(global.BadgerAccordion = factory());
-}(this, (function () { 'use strict';
-
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -259,7 +253,6 @@ function () {
       headerDataAttr: 'data-badger-accordion-header-id',
       openMultiplePanels: false,
       openHeadersOnLoad: [],
-      addListenersOnInit: true,
       headerOpenLabel: '',
       headerCloseLabel: '',
       roles: true // toggleEl:            // If you want to use a different element to trigger the accordion
@@ -272,7 +265,7 @@ function () {
 
     var children = Array.from(this.container.children); // Since the Accordions header button is nested inside an element with class
     // of `badger-accordion__header` it is a grandchild of the accordion instance.
-    // In order to have nested accordions we need each to only get all the button
+    // In order to have nested accordions we need each to only get all the button 
     // elements for this instance. Here an array is created to show all the children
     // of the element `badger-accordion__header`.
 
@@ -426,8 +419,7 @@ function () {
   }, {
     key: "_addListeners",
     value: function _addListeners() {
-      if (!this.settings.addListenersOnInit) return; // So we can reference the badger-accordion object inside out eventListener
-
+      // So we can reference the badger-accordion object inside out eventListener
       var _this = this; // Adding click event to accordion
 
 
@@ -805,7 +797,19 @@ function () {
   return BadgerAccordion;
 }(); // Export
 
-return BadgerAccordion;
+export default BadgerAccordion;
+//# sourceMappingURL=badger-accordion.esm.js.map
 
-})));
-//# sourceMappingURL=badger-accordion.js.map
+
+
+
+var accordionDomNode = document.querySelector('.js-badger-accordion');
+var accordion = new BadgerAccordion(accordionDomNode); 
+                      
+                      
+// API Examples
+console.log(accordion.getState([0])); 
+// accordion.open( document.querySelector('[data-badger-accordion-header-id="1"]') );
+// accordion.close( 0 );
+
+// })));
